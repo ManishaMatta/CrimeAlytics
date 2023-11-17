@@ -5,7 +5,7 @@ from sklearn.preprocessing import OneHotEncoder
 
 class Common:
     @staticmethod
-    def get_medatdata(df):
+    def get_metadata(df):
         col_names=df.columns # retreive column names
         dtypes=df.dtypes # variable types
         num_missing=df.isna().sum() # missing values total
