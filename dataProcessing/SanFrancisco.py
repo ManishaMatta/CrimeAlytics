@@ -1,3 +1,4 @@
+from datetime import datetime
 import pandas as pd
 from Common import *
 
@@ -10,11 +11,20 @@ class SanFrancisco:
         print(dir(Common))
         metadata_df = Common.get_metadata(df)
         print(metadata_df)
+
+        start_date=datetime.strptime('2018-01-01', '%Y-%m-%d').date()
+        end_date=datetime.strptime('2023-12-31', '%Y-%m-%d').date()
+
+        filter_df=Common.categorise_date(df,'ARREST DATE','%m/%d/%Y %I:%M:%S %p','arrest')
+        filter_df=filter_df[(filter_df['arrest_date'] >= start_date) & (filter_df['arrest_date'] <= end_date)]
         return
     
 
 
-
+pd.set_option("display.max_rows", 100000)
+pd.set_option("display.max_columns", 1000)
+pd.set_option("display.expand_frame_repr", True)
+pd.set_option('display.width', 1000)
 print("start execution")
 SanFrancisco.sf_crime()
 print("end execution")
