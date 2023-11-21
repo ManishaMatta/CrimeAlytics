@@ -62,7 +62,9 @@ if add_selectbox == 'Chicago':
 # '...and now we\'re done!'
 
 
-# @TODO MAke it work
+# @TODO MAke the model execute
+# @TODO add background picture
+# @TODO add code for LA and SF
 
 # page_bg_img = '''
 # <style>
