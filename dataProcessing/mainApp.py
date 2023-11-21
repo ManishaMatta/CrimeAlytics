@@ -27,7 +27,6 @@ if add_selectbox == 'Chicago':
     ward_dtl = round(st.slider('Ward',1.0,50.0),0)
     crime_time_option = st.selectbox('Time of Crime',('Morning','Afternoon','Evening','Night'))
     button_val = st.button('Predict')
-    st.write(button_val)
     if button_val:
         st.write("********************************************************")
         # @TODO make the pickel file work!!
@@ -65,6 +64,7 @@ if add_selectbox == 'Chicago':
 # @TODO MAke the model execute
 # @TODO add background picture
 # @TODO add code for LA and SF
+# @TODO move code to diff directory
 
 # page_bg_img = '''
 # <style>
