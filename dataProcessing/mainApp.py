@@ -1,4 +1,4 @@
-# streamlit run /Users/Manisha/Documents/MS/SDSU/course/BDA-594/finalProject/project/CrimeAlytics/websiteDesign/mainApp.py
+# streamlit run /Users/Manisha/Documents/MS/SDSU/course/BDA-594/finalProject/project/CrimeAlytics/dataProcessing/mainApp.py
 # python -m streamlit run your_script.py
 # streamlit run https://raw.githubusercontent.com/streamlit/demo-uber-nyc-pickups/master/streamlit_app.py
 
