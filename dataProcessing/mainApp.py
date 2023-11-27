@@ -29,13 +29,14 @@ if add_selectbox == 'Chicago':
     button_val = st.button('Predict')
     if button_val:
         st.write("********************************************************")
-        # @TODO make the pickel file work!!
-        st.write(add_selectbox," : ",ward_dtl,crime_loc_chosen,crime_desc_chosen,crime_time_option)
+        # st.write(add_selectbox," : ",ward_dtl,crime_loc_chosen,crime_desc_chosen,crime_time_option)
         loaded_ccrime_model = pickle.load(open('/Users/Manisha/Documents/MS/SDSU/course/BDA-594/finalProject/project/CrimeAlytics/resources/output/chicago-rfmodel.pk1' , 'rb'))
-        # x_value = pd.DataFrame([{'crime_type': crime_desc_chosen, 'location_desc': crime_loc_chosen, 'crime_time_c': crime_time_option, 'Ward': ward_dtl}], columns=['crime_type', 'location_desc', 'crime_time_c', 'Ward'])
-        x_value = pd.DataFrame([{'crime_type': 'Weapons and Violations', 'location_desc': 'Parking', 'crime_time_c': 'Morning', 'Ward': 12.0}], columns=['crime_type', 'location_desc', 'crime_time_c', 'Ward'])
+        x_value = pd.DataFrame([{'crime_type': crime_desc_chosen, 'location_desc': crime_loc_chosen, 'crime_time_c': crime_time_option, 'Ward': str(ward_dtl)}], columns=['crime_type', 'location_desc', 'crime_time_c', 'Ward'])
+        # x_value = pd.DataFrame([{'crime_type': 'Weapons and Violations', 'location_desc': 'Parking', 'crime_time_c': 'Morning', 'Ward': '12.0'}], columns=['crime_type', 'location_desc', 'crime_time_c', 'Ward'])
         cc_predict_value = loaded_ccrime_model.predict(x_value[['crime_type', 'location_desc', 'crime_time_c', 'Ward']].dropna())
-        st.write("predicted value: ", cc_predict_value)
+        st.write("predicted value:", str(cc_predict_value))
+        cc_predict_value
+
         st.write("********************************************************")
 # elif add_selectbox=='Los Angeles':
 #     LA
