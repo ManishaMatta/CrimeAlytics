@@ -12,7 +12,7 @@ from urllib.request import urlretrieve
 import tempfile
 
 temp_dir = tempfile.mkdtemp()
-urlretrieve("https://drive.google.com/u/0/uc?id=156HUQX3Sevz7Qlil4UvfxXCkJ_RBWCR1&export=download", "chicago-rfmodel.pk1")
+urlretrieve("https://drive.google.com/drive/u/0/folders/1na1tcVuFZYe5qLcMFHG0edWmaMHTZzYk", "chicago-rfmodel.pk1")
 chicago_path = os.path.join(temp_dir, "chicago-rfmodel.pk1")
 # urlretrieve("https://drive.google.com/drive/u/0/folders/1na1tcVuFZYe5qLcMFHG0edWmaMHTZzYk", "LA_BaseData.pkl")
 # urlretrieve("https://drive.google.com/drive/u/0/folders/1na1tcVuFZYe5qLcMFHG0edWmaMHTZzYk", "LA_best_xgb_model.pkl_f1")
