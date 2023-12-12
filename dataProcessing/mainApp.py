@@ -42,8 +42,8 @@ if add_selectbox == 'Chicago':
         # st.write(os.listdir("."))
         st.write(os.listdir("/mount/src/crimealytics/"))
         st.write(Path(__file__))
-        st.write(urlretrieve("https://drive.google.com/drive/u/0/folders/1na1tcVuFZYe5qLcMFHG0edWmaMHTZzYk", "LA_BaseData.pkl"))
-        chicago_path = os.path.join("/mount/src/crimealytics/", "LA_BaseData.pkl")
+        st.write(urlretrieve("https://drive.google.com/drive/u/0/folders/1na1tcVuFZYe5qLcMFHG0edWmaMHTZzYk", "SF-LRmodel.pk1"))
+        chicago_path = os.path.join("/mount/src/crimealytics/", "SF-LRmodel.pk1")
         st.write(chicago_path)
 
         with open(chicago_path, 'rb') as file:
