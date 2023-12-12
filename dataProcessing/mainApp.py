@@ -13,6 +13,7 @@ import tempfile
 from pathlib import Path
 
 temp_dir = tempfile.mkdtemp()
+# urlretrieve("https://drive.google.com/drive/u/0/folders/1na1tcVuFZYe5qLcMFHG0edWmaMHTZzYk", "chicago-rfmodel.pk1")
 # urlretrieve("https://drive.google.com/drive/u/0/folders/1na1tcVuFZYe5qLcMFHG0edWmaMHTZzYk", "LA_BaseData.pkl")
 # urlretrieve("https://drive.google.com/drive/u/0/folders/1na1tcVuFZYe5qLcMFHG0edWmaMHTZzYk", "LA_best_xgb_model.pkl_f1")
 # urlretrieve("https://drive.google.com/drive/u/0/folders/1na1tcVuFZYe5qLcMFHG0edWmaMHTZzYk", "SF-LRmodel.pk1")
@@ -41,13 +42,13 @@ if add_selectbox == 'Chicago':
         # st.write(os.listdir("."))
         st.write(os.listdir("/mount/src/crimealytics/"))
         st.write(Path(__file__))
-        st.write(urlretrieve("https://drive.google.com/drive/u/0/folders/1na1tcVuFZYe5qLcMFHG0edWmaMHTZzYk", "chicago-rfmodel.pk1"))
-        chicago_path = os.path.join("/mount/src/crimealytics/", "chicago-rfmodel.pk1")
+        st.write(urlretrieve("https://drive.google.com/drive/u/0/folders/1na1tcVuFZYe5qLcMFHG0edWmaMHTZzYk", "LA_BaseData.pkl"))
+        chicago_path = os.path.join("/mount/src/crimealytics/", "LA_BaseData.pkl")
         st.write(chicago_path)
 
         with open(chicago_path, 'rb') as file:
             content = file.read()
-            print(content)
+            st.write(content)
 
 
 
