@@ -1,8 +1,9 @@
+pip
 streamlit
 numpy
 pandas
 seaborn
 scikit-learn
 xgboost
-google.colab
-
+setuptools
+wheel
