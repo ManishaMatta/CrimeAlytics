@@ -85,7 +85,7 @@ else:
     button_val = st.button('Predict')
     if button_val:
         # st.write(add_selectbox," : ",ward_dtl,crime_loc_chosen,crime_desc_chosen,crime_time_option)
-        loaded_ccrime_model = pickle.load(open('/Users/Manisha/Documents/MS/SDSU/course/BDA-594/finalProject/project/CrimeAlytics/resources/model/SF-LRmodel.pk1', 'rb'))
+        loaded_ccrime_model = pickle.load(open('resources/model/SF-LRmodel.pk1', 'rb'))
         x_value = pd.DataFrame([{'Mapped_Category': crime_desc_chosen, 'Day_Category': crime_day_option, 'Time_Category': crime_time_option.lower(),'Neighborhood_Name':crime_loc_chosen}], columns=['Mapped_Category', 'Day_Category','Time_Category', 'Neighborhood_Name'])
         cc_predict_value = loaded_ccrime_model.predict(x_value.dropna())
         st.write("predicted value:", str(cc_predict_value))
