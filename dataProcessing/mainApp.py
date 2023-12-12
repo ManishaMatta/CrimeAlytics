@@ -48,6 +48,9 @@ if add_selectbox == 'Chicago':
         chicago_path = os.path.join("/mount/src/crimealytics/", "SF-LRmodel.pk1")
         st.write(chicago_path)
 
+        loaded_ccrime_model = pickle.load(open(chicago_path, 'rb'), protocol=2)
+        st.write(loaded_ccrime_model)
+        
         google_drive_url = "https://drive.google.com/drive/u/0/folders/1na1tcVuFZYe5qLcMFHG0edWmaMHTZzYk"
         urllib.request.urlretrieve(google_drive_url, "SF-LRmodel.pkl")
         chicago_path = "/mount/src/crimealytics/SF-LRmodel.pkl"
