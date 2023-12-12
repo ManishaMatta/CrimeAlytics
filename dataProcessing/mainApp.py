@@ -45,7 +45,8 @@ if add_selectbox == 'Chicago':
         st.write(os.listdir("/mount/src/crimealytics/resources/model/"))
         st.write(Path(__file__))
         # st.write(urlretrieve("https://drive.google.com/drive/u/0/folders/1na1tcVuFZYe5qLcMFHG0edWmaMHTZzYk", "SF-LRmodel.pk1"))
-        chicago_path = os.path.join("/mount/src/crimealytics/resources/model", "SF-LRmodel.pk1")
+        chicago_path = os.path.join("/mount/src/crimealytics/resources/model", "chicago-rfmodel.pk1")
+
         st.write(chicago_path)
         loaded_ccrime_model = pickle.load(open(chicago_path, 'rb'))
         x_value = pd.DataFrame([{'crime_type': crime_desc_chosen, 'location_desc': crime_loc_chosen, 'crime_time_c': crime_time_option, 'Ward': str(ward_dtl)}], columns=['crime_type', 'location_desc', 'crime_time_c', 'Ward'])
