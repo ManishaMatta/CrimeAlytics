@@ -42,23 +42,11 @@ if add_selectbox == 'Chicago':
     if button_val:
         # st.write(add_selectbox," : ",ward_dtl,crime_loc_chosen,crime_desc_chosen,crime_time_option)
         # st.write(os.listdir("."))
-        st.write(os.listdir("/mount/src/crimealytics/"))
+        st.write(os.listdir("/mount/src/crimealytics/resources/model/"))
         st.write(Path(__file__))
-        st.write(urlretrieve("https://drive.google.com/drive/u/0/folders/1na1tcVuFZYe5qLcMFHG0edWmaMHTZzYk", "SF-LRmodel.pk1"))
-        chicago_path = os.path.join("/mount/src/crimealytics/", "SF-LRmodel.pk1")
+        # st.write(urlretrieve("https://drive.google.com/drive/u/0/folders/1na1tcVuFZYe5qLcMFHG0edWmaMHTZzYk", "SF-LRmodel.pk1"))
+        chicago_path = os.path.join("/mount/src/crimealytics/resources/model", "SF-LRmodel.pk1")
         st.write(chicago_path)
-
-        loaded_ccrime_model = pickle.load(open(chicago_path, 'rb'), protocol=2)
-        st.write(loaded_ccrime_model)
-        
-        google_drive_url = "https://drive.google.com/drive/u/0/folders/1na1tcVuFZYe5qLcMFHG0edWmaMHTZzYk"
-        urllib.request.urlretrieve(google_drive_url, "SF-LRmodel.pkl")
-        chicago_path = "/mount/src/crimealytics/SF-LRmodel.pkl"
-        st.write(os.path.isfile(chicago_path))
-        loaded_ccrime_model = pickle.load(open(chicago_path, 'rb'))
-        st.write(loaded_ccrime_model)
-
-
         loaded_ccrime_model = pickle.load(open(chicago_path, 'rb'))
         x_value = pd.DataFrame([{'crime_type': crime_desc_chosen, 'location_desc': crime_loc_chosen, 'crime_time_c': crime_time_option, 'Ward': str(ward_dtl)}], columns=['crime_type', 'location_desc', 'crime_time_c', 'Ward'])
         # x_value = pd.DataFrame([{'crime_type': 'Weapons and Violations', 'location_desc': 'Parking', 'crime_time_c': 'Morning', 'Ward': '12.0'}], columns=['crime_type', 'location_desc', 'crime_time_c', 'Ward'])
@@ -117,7 +105,7 @@ else:
     button_val = st.button('Predict')
     if button_val:
         # st.write(add_selectbox," : ",ward_dtl,crime_loc_chosen,crime_desc_chosen,crime_time_option)
-        loaded_ccrime_model = pickle.load(open('resources/model/SF-LRmodel.pk1', 'rb'))
+        loaded_ccrime_model = pickle.load(open('/Users/Manisha/Documents/MS/SDSU/course/BDA-594/finalProject/project/CrimeAlytics/resources/model/SF-LRmodel.pk1', 'rb'))
         x_value = pd.DataFrame([{'Mapped_Category': crime_desc_chosen, 'Day_Category': crime_day_option, 'Time_Category': crime_time_option.lower(),'Neighborhood_Name':crime_loc_chosen}], columns=['Mapped_Category', 'Day_Category','Time_Category', 'Neighborhood_Name'])
         cc_predict_value = loaded_ccrime_model.predict(x_value.dropna())
         st.write("predicted value:", str(cc_predict_value))
