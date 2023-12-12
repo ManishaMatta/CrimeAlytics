@@ -27,7 +27,7 @@ if add_selectbox == 'Chicago':
     button_val = st.button('Predict')
     if button_val:
         # st.write(add_selectbox," : ",ward_dtl,crime_loc_chosen,crime_desc_chosen,crime_time_option)
-        loaded_ccrime_model = pickle.load(open('/resources/model/chicago-rfmodel.pk1', 'rb'))
+        loaded_ccrime_model = pickle.load(open('https://drive.google.com/file/d/156HUQX3Sevz7Qlil4UvfxXCkJ_RBWCR1/view?usp=sharing', 'rb'))
         x_value = pd.DataFrame([{'crime_type': crime_desc_chosen, 'location_desc': crime_loc_chosen, 'crime_time_c': crime_time_option, 'Ward': str(ward_dtl)}], columns=['crime_type', 'location_desc', 'crime_time_c', 'Ward'])
         # x_value = pd.DataFrame([{'crime_type': 'Weapons and Violations', 'location_desc': 'Parking', 'crime_time_c': 'Morning', 'Ward': '12.0'}], columns=['crime_type', 'location_desc', 'crime_time_c', 'Ward'])
         cc_predict_value = loaded_ccrime_model.predict(x_value[['crime_type', 'location_desc', 'crime_time_c', 'Ward']].dropna())
@@ -85,7 +85,7 @@ else:
     button_val = st.button('Predict')
     if button_val:
         # st.write(add_selectbox," : ",ward_dtl,crime_loc_chosen,crime_desc_chosen,crime_time_option)
-        loaded_ccrime_model = pickle.load(open('https://drive.google.com/file/d/156HUQX3Sevz7Qlil4UvfxXCkJ_RBWCR1/view?usp=sharing', 'rb'))
+        loaded_ccrime_model = pickle.load(open('resources/model/SF-LRmodel.pk1', 'rb'))
         x_value = pd.DataFrame([{'Mapped_Category': crime_desc_chosen, 'Day_Category': crime_day_option, 'Time_Category': crime_time_option.lower(),'Neighborhood_Name':crime_loc_chosen}], columns=['Mapped_Category', 'Day_Category','Time_Category', 'Neighborhood_Name'])
         cc_predict_value = loaded_ccrime_model.predict(x_value.dropna())
         st.write("predicted value:", str(cc_predict_value))
