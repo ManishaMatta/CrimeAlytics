@@ -2,11 +2,23 @@
 # python -m streamlit run your_script.py
 # streamlit run https://raw.githubusercontent.com/streamlit/demo-uber-nyc-pickups/master/streamlit_app.py
 
+import os
 import streamlit as st
 import pandas as pd
 import numpy as np
 import time
 import pickle
+from urllib.request import urlretrieve
+import tempfile
+
+temp_dir = tempfile.mkdtemp()
+urlretrieve("https://drive.google.com/u/0/uc?id=156HUQX3Sevz7Qlil4UvfxXCkJ_RBWCR1&export=download", "chicago-rfmodel.pk1")
+chicago_path = os.path.join(temp_dir, "chicago-rfmodel.pk1")
+# urlretrieve("https://drive.google.com/drive/u/0/folders/1na1tcVuFZYe5qLcMFHG0edWmaMHTZzYk", "LA_BaseData.pkl")
+# urlretrieve("https://drive.google.com/drive/u/0/folders/1na1tcVuFZYe5qLcMFHG0edWmaMHTZzYk", "LA_best_xgb_model.pkl_f1")
+# urlretrieve("https://drive.google.com/drive/u/0/folders/1na1tcVuFZYe5qLcMFHG0edWmaMHTZzYk", "SF-LRmodel.pk1")
+
+
 
 st.title('CrimeAlytics - Execution')
 
@@ -27,7 +39,7 @@ if add_selectbox == 'Chicago':
     button_val = st.button('Predict')
     if button_val:
         # st.write(add_selectbox," : ",ward_dtl,crime_loc_chosen,crime_desc_chosen,crime_time_option)
-        loaded_ccrime_model = pickle.load(open('https://drive.google.com/file/d/156HUQX3Sevz7Qlil4UvfxXCkJ_RBWCR1/view?usp=sharing', 'rb'))
+        loaded_ccrime_model = pickle.load(open(chicago_path, 'rb'))
         x_value = pd.DataFrame([{'crime_type': crime_desc_chosen, 'location_desc': crime_loc_chosen, 'crime_time_c': crime_time_option, 'Ward': str(ward_dtl)}], columns=['crime_type', 'location_desc', 'crime_time_c', 'Ward'])
         # x_value = pd.DataFrame([{'crime_type': 'Weapons and Violations', 'location_desc': 'Parking', 'crime_time_c': 'Morning', 'Ward': '12.0'}], columns=['crime_type', 'location_desc', 'crime_time_c', 'Ward'])
         cc_predict_value = loaded_ccrime_model.predict(x_value[['crime_type', 'location_desc', 'crime_time_c', 'Ward']].dropna())
