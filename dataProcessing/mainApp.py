@@ -3,6 +3,8 @@
 # streamlit run https://raw.githubusercontent.com/streamlit/demo-uber-nyc-pickups/master/streamlit_app.py
 
 import os
+import urllib
+
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -46,11 +48,12 @@ if add_selectbox == 'Chicago':
         chicago_path = os.path.join("/mount/src/crimealytics/", "SF-LRmodel.pk1")
         st.write(chicago_path)
 
-        with open(chicago_path, 'rb') as file:
-            content = file.read()
-            st.write(content)
-
-
+        google_drive_url = "https://drive.google.com/drive/u/0/folders/1na1tcVuFZYe5qLcMFHG0edWmaMHTZzYk"
+        urllib.request.urlretrieve(google_drive_url, "SF-LRmodel.pkl")
+        chicago_path = "/mount/src/crimealytics/SF-LRmodel.pkl"
+        st.write(os.path.isfile(chicago_path))
+        loaded_ccrime_model = pickle.load(open(chicago_path, 'rb'))
+        st.write(loaded_ccrime_model)
 
 
         loaded_ccrime_model = pickle.load(open(chicago_path, 'rb'))
