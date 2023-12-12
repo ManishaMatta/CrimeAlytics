@@ -10,6 +10,7 @@ import time
 import pickle
 from urllib.request import urlretrieve
 import tempfile
+from pathlib import Path
 
 temp_dir = tempfile.mkdtemp()
 # urlretrieve("https://drive.google.com/drive/u/0/folders/1na1tcVuFZYe5qLcMFHG0edWmaMHTZzYk", "LA_BaseData.pkl")
@@ -37,6 +38,8 @@ if add_selectbox == 'Chicago':
     button_val = st.button('Predict')
     if button_val:
         # st.write(add_selectbox," : ",ward_dtl,crime_loc_chosen,crime_desc_chosen,crime_time_option)
+        st.write(os.listdir("."))
+        st.write(Path(__file__))
         st.write(urlretrieve("https://drive.google.com/drive/u/0/folders/1na1tcVuFZYe5qLcMFHG0edWmaMHTZzYk", "chicago-rfmodel.pk1"))
         chicago_path = os.path.join(temp_dir, "chicago-rfmodel.pk1")
         loaded_ccrime_model = pickle.load(open(chicago_path, 'rb'))
