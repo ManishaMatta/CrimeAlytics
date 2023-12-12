@@ -39,6 +39,7 @@ if add_selectbox == 'Chicago':
     if button_val:
         # st.write(add_selectbox," : ",ward_dtl,crime_loc_chosen,crime_desc_chosen,crime_time_option)
         st.write(os.listdir("."))
+        st.write(os.listdir("/mount/src/crimealytics/dataProcessing/"))
         st.write(Path(__file__))
         st.write(urlretrieve("https://drive.google.com/drive/u/0/folders/1na1tcVuFZYe5qLcMFHG0edWmaMHTZzYk", "chicago-rfmodel.pk1"))
         chicago_path = os.path.join(temp_dir, "chicago-rfmodel.pk1")
