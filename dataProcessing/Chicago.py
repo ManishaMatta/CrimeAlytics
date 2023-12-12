@@ -258,7 +258,6 @@ class Chicago:
         crime_df['location_desc'] = crime_df['Location Description'].str.strip().map(location_distribution).fillna('Other')
         # print(Common.get_metadata(crime_df))
         Common.eda(crime_df, ['crime_type', 'location_desc', 'crime_time_c', 'Ward'], 'Arrest')
-
         # print(Common.get_metadata(crime_filter_df[['Primary Type', 'Location Description', 'crime_time_c', 'Arrest']]))
         # @todo - ignoring records with NA for now
         # crime_na_df = crime_filter_df.dropna()
@@ -281,9 +280,9 @@ class Chicago:
         print(f"Accuracy: ", round(ccrime_accuracy * 100, 2), "%")  # 88.39 %
         print(classification_report(y_test, ccrime_predictions))
 
-        pickle.dump(ccrime_model , open('/Users/Manisha/Documents/MS/SDSU/course/BDA-594/finalProject/project/CrimeAlytics/resources/output/chicago-rfmodel.pk1' , 'wb'))
+        pickle.dump(ccrime_model, open('/resources/model/chicago-rfmodel.pk1', 'wb'))
 
-        # loaded_ccrime_model = pickle.load(open('/Users/Manisha/Documents/MS/SDSU/course/BDA-594/finalProject/project/CrimeAlytics/resources/output/chicago-rfmodel.pk1' , 'rb'))
+        # loaded_ccrime_model = pickle.load(open('/Users/Manisha/Documents/MS/SDSU/course/BDA-594/finalProject/project/CrimeAlytics/resources/model/chicago-rfmodel.pk1' , 'rb'))
         # loaded_model_accuracy = loaded_ccrime_model.score(X_test, y_test)
         # print("Loaded Model Accuracy:" , loaded_model_accuracy * 100, "%")
 

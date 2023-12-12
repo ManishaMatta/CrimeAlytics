@@ -69,7 +69,7 @@ class Common:
             sns.countplot(data=dataframe, x=x_val, hue=y_val, ax=ax2)
             ax2.set_xticklabels(ax2.get_xticklabels(), rotation=45)
             ax3 = fig.add_subplot(tg, 3, i + 2)
-            dataframe[x_val].value_counts().plot(kind='pie', autopct='%1.11f%%', ax=ax3)
+            dataframe[x_val].value_counts().plot(kind='pie', autopct='%.2f', ax=ax3)
             i += 3
         plt.show()
 

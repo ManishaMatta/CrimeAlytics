@@ -8,4 +8,5 @@ __pycache__
 .idea/workspace.xml
 dataProcessing/__pycache__/*
 dataProcessing/__pycache__
-resources/output/chicago-rfmodel.pk1
+resources/model/*
+
