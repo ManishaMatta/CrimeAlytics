@@ -15,7 +15,7 @@ class LosAngeles:
     def test():
         return
 def la_crime(la_dataframe):
-        Base_Data = pd.read_pickle("/Users/Manisha/Documents/MS/SDSU/course/BDA-594/finalProject/project/CrimeAlytics/resources/model/LA_BaseData.pkl")
+        Base_Data = pd.read_pickle("/mount/src/crimealytics/resources/model/LA_BaseData.pkl")
         age = la_dataframe['Age'].iloc[0]
         date_format = '%m/%d/%Y'
         lag_val = (datetime.strptime(la_dataframe['date_rptd'].iloc[0], date_format) - datetime.strptime(la_dataframe['date_inc'].iloc[0], date_format)).days
@@ -51,7 +51,7 @@ def la_crime(la_dataframe):
                      time_var : 1}
         df_main = pd.DataFrame([main_dict], columns=['Age','Lag_in_Report','Date of Occurance',area_var,mon_occur_var,grp_var,prm_var,gen_var,race_var,wep_var,time_var])
         data_final = pd.concat([Base_Data, df_main]).fillna(0)
-        with open('/Users/Manisha/Documents/MS/SDSU/course/BDA-594/finalProject/project/CrimeAlytics/resources/model/LA_best_xgb_model.pkl_f1', 'rb') as model_file:
+        with open('/mount/src/crimealytics/resources/model/LA_best_xgb_model.pkl_f1', 'rb') as model_file:
             loaded_xgb_model = pickle.load(model_file)
         y_pred=loaded_xgb_model.predict(data_final)
         y_prob =loaded_xgb_model.predict_proba(data_final)
