@@ -21,8 +21,9 @@ This initiative is crucial for enhancing our understanding of crime dynamics in 
 
 #### Website Link : https://sites.google.com/sdsu.edu/crime-alytics?usp=sharing
 #### Streamlit App : https://crimealytics-bda594.streamlit.app/
-![Screenshot 2023-12-12 at 6.43.07 PM.png](..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2Fvar%2Ffolders%2Fb8%2F2sbryb0n0gq6fp6fzg0dgjk40000gp%2FT%2FTemporaryItems%2FNSIRD_screencaptureui_CQC5iU%2FScreenshot%202023-12-12%20at%206.43.07%20PM.png)
+<img width="1088" alt="Screenshot 2023-12-13 at 2 34 57 PM" src="https://github.com/ManishaMatta/CrimeAlytics/assets/50313389/0594a0da-aa69-46bc-9bd4-7d4c553bf1fe">
 #### Tableau Dashboard : 
+
 
 ### Methodology
 In this application we can consider data from 2017 to 2022 [published in 2023].
