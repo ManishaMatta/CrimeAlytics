@@ -1,7 +1,11 @@
 # streamlit run /Users/Manisha/Documents/MS/SDSU/course/BDA-594/finalProject/project/CrimeAlytics/dataProcessing/mainApp.py
-# ?city=la
-# ?city=sf
-# ?city=ch
+# ?city=la : https://crimealytics-bda594.streamlit.app/?city=la
+# ?city=sf : https://crimealytics-bda594.streamlit.app/?city=sf
+# ?city=ch : https://crimealytics-bda594.streamlit.app/?city=ch
+# https://crimealytics-bda594.streamlit.app/
+# crimealytics ∙ main ∙ dataProcessing/mainApp.py
+
+
 
 import os
 import streamlit as st
@@ -9,7 +13,7 @@ import pandas as pd
 import pickle
 
 
-st.set_page_config(page_title='CrimeAlytics', layout='centered', page_icon='logo2.png', initial_sidebar_state='auto')
+st.set_page_config(page_title='CrimeAlytics', layout='wide', page_icon='logo2.png', initial_sidebar_state='auto')
 st.title('CrimeAlytics', anchor="CrimeAlytics", help='https://github.com/ManishaMatta/CrimeAlytics')
 st.caption("BDA-594 Course")
 caption_text = 'BDA-594 Project - CrimeAlytics [Group 3]'
