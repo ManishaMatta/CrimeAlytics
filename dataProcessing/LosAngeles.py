@@ -57,9 +57,9 @@ def la_crime(la_dataframe):
         y_prob =loaded_xgb_model.predict_proba(data_final)
         pred_proba = round(y_prob[:, 1][0]*100, 2)
         if y_pred[0] == 0:
-            return (f"UNRESOLVED : {pred_proba} %")
+            return (f"UNRESOLVED : Resolution Probability {pred_proba} %")
         else:
-            return (f"RESOLVED : {pred_proba} %")
+            return (f"RESOLVED : Resolution Probability {pred_proba} %")
 
 
 # my_dict = {  'Time of Occurence': ['Morning','Afternoon','Evening' , 'Night', 'Missing'],
