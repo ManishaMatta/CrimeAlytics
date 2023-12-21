@@ -2,6 +2,10 @@
 BDA 594 final project
 
 ### Members
+@ManishaMatta
+@anurima-saha
+@fernandacarrillo08
+@Mahalakshmi-Code
 
 ### Objective
 
