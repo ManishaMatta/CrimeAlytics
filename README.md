@@ -1,6 +1,8 @@
 # CrimeAlytics
 BDA 594 final project
 
+### Members
+
 ### Objective
 
 This project is centered around the comprehensive analysis of crime data originating from the cities of Chicago, Los Angeles, and San Francisco. 
